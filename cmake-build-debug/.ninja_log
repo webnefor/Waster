@@ -1,0 +1,9 @@
+# ninja log v6
+175	315	1729624026088583815	waster	13e1fcd2b53ef646
+5	155	1729624025918309072	CMakeFiles/waster.dir/src/str.c.o	1dc03070fe9ed633
+4	151	1729624025917320532	CMakeFiles/waster.dir/src/waster.c.o	76b1bcfabd17e9ac
+4	172	1729624025917895327	CMakeFiles/waster.dir/src/scan.c.o	f23b9f5609d49e98
+26	888	1729624285684686875	build.ninja	6601b92406cbe0fc
+7	458	1729624285762443973	CMakeFiles/waster.dir/src/waster.c.o	76b1bcfabd17e9ac
+8	463	1729624285763166310	CMakeFiles/waster.dir/src/str.c.o	1dc03070fe9ed633
+463	609	1729624286218126693	waster	a6ecec53da88a54e
