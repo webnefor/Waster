@@ -106,19 +106,35 @@ __attribute__((unused)) int hostScan(info_of_the_host *addr) {
         close(sockfd);
 
     }
-    if (count > 0) {
-        printf("\033[035m(%i.%i.%i.%i)\n └─", addr->host[0], addr->host[1], addr->host[2], addr->host[3]);
-        for (int i = 0; i < count; i++)
-            printf("\033[032m[%i]", activePorts[i]);
 
-        printf("\n");
+    // \n
+    // └─
+
+    char buffer[count];
+
+    if (count > 0)
+    {
+        int offset = 0;
+
+        for (int i = 0; i < count; i++) {
+            offset += sprintf(buffer + offset, "[%d] ", activePorts[i]);
+        }
+
+        printf("\033[035m(%i.%i.%i.%i) -> " "\033[032m" "%s\n",
+               addr->host[0],
+               addr->host[1],
+               addr->host[2],
+               addr->host[3],
+               buffer
+               );
     }
+
     free(addr);
     pthread_exit(NULL);
 }
 
 
-int kernelThread(intervalRange * args)
+_Noreturn int kernelThread(intervalRange * args)
 {
 
     pthread_t threads[255];
