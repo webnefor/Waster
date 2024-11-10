@@ -17,6 +17,9 @@
 #define RED "\033[31m"
 #define DEFAULT "\033[0m"
 
+
+#pragma pack(push, 1)
+
 typedef struct {
 
     char *range;
@@ -27,15 +30,19 @@ typedef struct {
 
 typedef struct {
 
-    unsigned int begin[8];
-    unsigned int end  [8];
-    signed   int ports [254];
-    int PortsCount;
+    uintmax_t begin     [0xF];
+    uintmax_t end       [0xF];
+    signed  int ports  [0xFF];
+    int PortsCount:(sizeof(uint32_t) * 2);
 
 } intervalRange;
+
+#pragma pack(pop)
 
 extern intervalRange c_split                (tArgs *data            );
 extern tArgs parse_args                     (int argc, char *argv[] );
 extern bool is_empty                        (char *str              );
 extern void show_help                       (                       );
-extern void logo();
+extern uint32_t Loop                        (intervalRange * args   );
+extern void logo                            (                       );
+extern void parse_server_info               (const char *response   );

@@ -6,7 +6,6 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include "config.h"
 #include <pthread.h>
 #include <string.h>
 #include <netinet/in.h>
@@ -16,13 +15,25 @@
 #include <stdarg.h>
 #include <fcntl.h>
 
-#define THREAD_COUNT(a, b) (a-b)
+#include "config.h"
 
 
 typedef struct {
-    int host[255];
-    int ports[255];
+
+    char host[0xFFFF];
+    int ports[0xFF];
     int count;
+
 } info_of_the_host;
 
+static uint32_t x = 0, totalIterations = 1;
+
+static uintmax_t one = 0;
+static uintmax_t two = 0;
+static uintmax_t three = 0;
+static uintmax_t four = 0;
+
+
 __attribute__((unused)) extern int kernelThread(intervalRange * options);
+
+int get_host_data(int sockfd, struct sockaddr_in * server_addr, char *);
