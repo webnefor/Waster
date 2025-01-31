@@ -27,7 +27,6 @@ To install Wastern, follow these steps:
 
 3. Install (if any):
    ```bash
-   # For Python
    cmake . && cmake --build .
    ```
 
