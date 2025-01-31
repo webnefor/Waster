@@ -46,7 +46,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any inquiries or feedback, please reach out to [wwebnefor@ya.ru].
+For any inquiries or feedback, please reach out to [webnefor@ya.ru].
 
 ---
 
